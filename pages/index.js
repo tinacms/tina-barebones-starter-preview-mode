@@ -19,17 +19,16 @@ export default function Home(props) {
   );
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps = async ({ preview }) => {
   const { data, query, variables } = await client.queries.page({
     relativePath: "home.mdx",
   });
-
   return {
     props: {
+      preview: preview || false,
       data,
       query,
       variables,
-      //myOtherProp: 'some-other-data',
     },
   };
 };

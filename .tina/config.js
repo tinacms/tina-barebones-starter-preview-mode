@@ -1,20 +1,6 @@
-import { defineStaticConfig } from "tinacms";
+import { defineConfig, defineSchema, defineStaticConfig } from "tinacms";
 
-const schema = {
-  config: {
-    clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
-    branch:
-      process.env.NEXT_PUBLIC_TINA_BRANCH ||
-      process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF ||
-      process.env.HEAD,
-    token: process.env.TINA_TOKEN,
-    media: {
-      tina: {
-        mediaRoot: "uploads",
-        publicFolder: "public",
-      },
-    },
-  },
+const schema = defineSchema({
   collections: [
     {
       label: "Page Content",
@@ -44,10 +30,19 @@ const schema = {
       path: "content/post",
       fields: [
         {
+          type: "boolean",
+          label: "Draft",
+          name: "draft",
+          required: true,
+        },
+        {
           type: "string",
           label: "Title",
           name: "title",
+          required: true,
+          isTitle: true,
         },
+
         {
           type: "string",
           label: "Blog Post Body",
@@ -65,14 +60,24 @@ const schema = {
       },
     },
   ],
-};
+});
 
-export const config = defineStaticConfig({
+export const config = defineConfig({
+  admin: {
+    auth: {
+      onLogin: async ({ token }) => {
+        location.href =
+          `/api/preview/enter?secret=${token.id_token}&slug=` +
+          location?.pathname;
+      },
+    },
+  },
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
   branch:
     process.env.NEXT_PUBLIC_TINA_BRANCH || // custom branch env override
     process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF || // Vercel branch env
-    process.env.HEAD, // Netlify branch env
+    process.env.HEAD ||
+    "main", // Netlify branch env
   token: process.env.TINA_TOKEN,
   media: {
     // If you wanted cloudinary do this
@@ -93,4 +98,4 @@ export const config = defineStaticConfig({
   schema,
 });
 
-export default config
+export default config;
