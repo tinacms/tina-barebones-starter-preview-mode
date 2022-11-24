@@ -1,4 +1,4 @@
-import { defineConfig, defineSchema, defineStaticConfig } from "tinacms";
+import { defineConfig, defineSchema } from "tinacms";
 
 const schema = defineSchema({
   collections: [
