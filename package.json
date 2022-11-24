@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "tinacms dev -c \"next dev\"",
+    "build:dev": "tinacms build && next dev",
     "build": "tinacms build && next build",
     "start": "tinacms build && next start",
     "lint": "next lint"

@@ -67,7 +67,7 @@ export const config = defineConfig({
     auth: {
       onLogin: async ({ token }) => {
         location.href =
-          `/api/preview/enter?secret=${token.id_token}&slug=` +
+          `/api/preview/enter?token=${token.id_token}&slug=` +
           location?.pathname;
       },
     },
