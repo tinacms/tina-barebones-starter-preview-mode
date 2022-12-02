@@ -1,4 +1,4 @@
-import { isAuthorized } from "@tinacms/auth";
+import { isUserAuthorized } from "@tinacms/auth";
 
 const handler = async (req, res) => {
   if (process.env.IS_LOCAL === "true") {
@@ -8,9 +8,9 @@ const handler = async (req, res) => {
   }
 
   // Check tina cloud token
-  const isAuthorizedRes = await isAuthorized({
-    query: { clientID: process.env.NEXT_PUBLIC_TINA_CLIENT_ID },
-    headers: { authorization: `Bearer ${req.query.token}` },
+  const isAuthorizedRes = await isUserAuthorized({
+    token: `Bearer ${req.query.token}`,
+    clientID: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
   });
 
   if (isAuthorizedRes) {

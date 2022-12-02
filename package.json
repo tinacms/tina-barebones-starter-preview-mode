@@ -10,16 +10,16 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@tinacms/auth": "^1.0.0",
+    "@tinacms/auth": "^0.0.0-20221201210510",
     "next": "^12.0.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-is": "^17.0.2",
     "styled-components": "^5.1.3",
-    "tinacms": "^0.0.0-20221124183047"
+    "tinacms": "^0.0.0-20221201210510"
   },
   "devDependencies": {
-    "@tinacms/cli": "^0.0.0-20221124183047",
+    "@tinacms/cli": "^0.0.0-20221201210510",
     "eslint": "7",
     "eslint-config-next": "12.0.3"
   }
