@@ -66,9 +66,14 @@ export const config = defineConfig({
   admin: {
     auth: {
       onLogin: async ({ token }) => {
+        console.log("On Login");
         location.href =
           `/api/preview/enter?token=${token.id_token}&slug=` +
           location?.pathname;
+      },
+      onLogout: async () => {
+        console.log("onLogout");
+        location.href = `/api/preview/slug=` + location?.pathname;
       },
     },
   },

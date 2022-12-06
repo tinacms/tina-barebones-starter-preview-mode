@@ -16,10 +16,10 @@
     "react-dom": "^17.0.2",
     "react-is": "^17.0.2",
     "styled-components": "^5.1.3",
-    "tinacms": "^0.0.0-20221201210510"
+    "tinacms": "^0.0.0-20221205194020"
   },
   "devDependencies": {
-    "@tinacms/cli": "^0.0.0-20221201210510",
+    "@tinacms/cli": "^0.0.0-20221205194020",
     "eslint": "7",
     "eslint-config-next": "12.0.3"
   }
