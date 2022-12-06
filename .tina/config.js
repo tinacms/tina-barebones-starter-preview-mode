@@ -73,7 +73,7 @@ export const config = defineConfig({
       },
       onLogout: async () => {
         console.log("onLogout");
-        location.href = `/api/preview/slug=` + location?.pathname;
+        location.href = `/api/preview/exit?slug=` + location?.pathname;
       },
     },
   },
