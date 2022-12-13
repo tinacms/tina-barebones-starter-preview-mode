@@ -10,7 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@tinacms/auth": "^0.0.0-20221201210510",
+    "@tinacms/auth": "^1.0.2",
     "next": "^12.0.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
